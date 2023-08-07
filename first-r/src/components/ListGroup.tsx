@@ -1,27 +1,40 @@
-function ListGroup() {
-  const cities = ["Paris", "Rome", "Kazan"];
+import { useState } from "react";
 
-  cities.pop();
-  cities.pop();
-  cities.pop();
-  if (cities.length == 0)
-    return (
-      <>
-        <h1>List</h1>
-        <p>No items</p>
-      </>
-    );
+interface Props {
+  items: string[];
+  title: string;
+  onSelectItem: (item: string) => void;
+}
+
+function ListGroup({ items, title, onSelectItem }: Props) {
+  const [selectedIndex, setSelectedIndex] = useState(-1);
+  // cities.pop();
+  // cities.pop();
+  // cities.pop();
 
   return (
     <>
-      <h1>List group</h1>
-      <ul className="list-group">
-        {cities.map((city) => (
-          <li className="list-group-item" key={city}>
-            {city}
-          </li>
-        ))}
-      </ul>
+      <h1>{title}</h1>
+      {items.length === 0 ? (
+        <p>No items</p>
+      ) : (
+        <ul className="list-group">
+          {items.map((city, index) => (
+            <li
+              className={
+                "list-group-item " + (index === selectedIndex && "active")
+              }
+              key={city}
+              onClick={() => {
+                setSelectedIndex(index);
+                onSelectItem(city)
+              }}
+            >
+              {city}
+            </li>
+          ))}
+        </ul>
+      )}
     </>
   );
 }

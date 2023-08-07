@@ -6,10 +6,17 @@ import Message from './Message'
 import ListGroup from './components/ListGroup'
 
 function App() {
+  const cities = ["Paris", "Rome", "Kazan"];
+
+  const onSelectItem = (item: string) => {
+    console.log(item);
+    
+  }
+
   return (
     <>
       <Message />
-      <ListGroup />
+      <ListGroup items={cities} title='Cities' onSelectItem={onSelectItem}/>
     </>
   )
 }
