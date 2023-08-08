@@ -1,6 +1,6 @@
 import Button from "./button";
 
-export default function LetterGrid() {
+export default function ButtonGrid({letterGuessed, isShown}) {
   const letters = [
     'A', 'B', 'C', 'D', 'E', 'F',
     'G', 'H', 'I', 'J', 'K', 'L',
@@ -12,7 +12,8 @@ export default function LetterGrid() {
     <Button
       value={letter}
       key={index}
+      onClick={letterGuessed}
     />
   ))
-  return <div className="flex flex-wrap mt-10">{buttons}</div>;
+  return isShown && <div className="flex flex-wrap mt-10">{buttons}</div>;
 }
