@@ -14,5 +14,5 @@ export default function LetterGrid() {
       key={index}
     />
   ))
-  return <div>{buttons}</div>;
+  return <div className="flex flex-wrap mt-10">{buttons}</div>;
 }
