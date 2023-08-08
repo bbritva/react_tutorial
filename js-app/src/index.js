@@ -1,11 +1,4 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from "react-dom/client";
+import App from "./App.js";
 
-function HelloWorld({name}) {
-    return <h1>Hello, {name}!</h1>
-}
-
-ReactDOM.render(
-    <HelloWorld name="Jeremy"></HelloWorld>,
-    document.getElementById('root')
-)
+ReactDOM.createRoot(document.getElementById("root")).render(<App tab="home" />);
