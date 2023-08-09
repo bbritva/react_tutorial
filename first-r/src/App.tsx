@@ -1,12 +1,11 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import { useState } from "react";
 import "./App.css";
 import Message from "./Message";
 import Alert from "./components/Alert";
 import MyButton from "./components/Button";
 import ListGroup from "./components/ListGroup";
+
+import axios from 'axios'
 
 function App() {
   const cities = ["Paris", "Rome", "Kazan"];
@@ -17,6 +16,21 @@ function App() {
   };
 
   const [btnType, setBtnType] = useState(0)
+
+
+  const onBtnPress = (index : number) => {
+    setBtnType(index)
+    axios.get(`https://jsonplaceholder.typicode.com/users`)
+    .then(res => {
+      const persons = res.data;
+      console.log(persons);
+    })
+    axios.post(`https://jsonplaceholder.typicode.com/users`, { "name" : "user" })
+    .then(res => {
+      console.log(res);
+      console.log(res.data);
+    })
+  }
   
 
   return (
@@ -24,7 +38,7 @@ function App() {
       <Message />
       <ListGroup items={cities} title="Cities" onSelectItem={onSelectItem} />
       <Alert>hi, <p>piece</p></Alert>
-      <MyButton onBtnPress={setBtnType} btnTypes={buttonTypes} currentState={btnType}></MyButton>
+      <MyButton onBtnPress={onBtnPress} btnTypes={buttonTypes} currentState={btnType}></MyButton>
     </>
   );
 }
