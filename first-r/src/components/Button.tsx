@@ -1,3 +1,5 @@
+import { Button } from "@mui/material";
+
 interface Props {
   onBtnPress: (prev: number) => void;
   btnTypes: string[];
@@ -6,7 +8,8 @@ interface Props {
 
 function MyButton({ onBtnPress, btnTypes, currentState }: Props) {
   return (
-    <button
+    <Button
+      variant="outlined"
       type="button"
       className={"btn btn-primary btn-" + btnTypes[currentState]}
       onClick={() => {
@@ -18,18 +21,9 @@ function MyButton({ onBtnPress, btnTypes, currentState }: Props) {
       }}
     >
       {btnTypes[currentState]}
-    </button>
+    </Button>
   );
 }
 
 export default MyButton;
 
-/* <button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
-
-<button type="button" class="btn btn-link">Link</button> */

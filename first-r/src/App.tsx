@@ -1,12 +1,11 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import { useState } from "react";
 import "./App.css";
 import Message from "./Message";
 import Alert from "./components/Alert";
 import MyButton from "./components/Button";
 import ListGroup from "./components/ListGroup";
+import Navbar from "./components/Navbar";
+import { Container } from "@mui/material";
 
 function App() {
   const cities = ["Paris", "Rome", "Kazan"];
@@ -20,12 +19,13 @@ function App() {
   
 
   return (
-    <>
+    <Container maxWidth="sm">
+      <Navbar></Navbar>
       <Message />
       <ListGroup items={cities} title="Cities" onSelectItem={onSelectItem} />
       <Alert>hi, <p>piece</p></Alert>
       <MyButton onBtnPress={setBtnType} btnTypes={buttonTypes} currentState={btnType}></MyButton>
-    </>
+    </Container>
   );
 }
 
