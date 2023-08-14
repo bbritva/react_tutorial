@@ -16,7 +16,7 @@ function App() {
   };
 
   const [btnType, setBtnType] = useState(0)
-  
+
 
   return (
     <Container maxWidth="sm">
