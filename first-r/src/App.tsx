@@ -19,7 +19,7 @@ function App() {
 
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="sm" id="root-container">
       <Navbar></Navbar>
       <Message />
       <ListGroup items={cities} title="Cities" onSelectItem={onSelectItem} />
