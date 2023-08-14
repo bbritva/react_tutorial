@@ -9,7 +9,7 @@ import { Container } from "@mui/material";
 
 function App() {
   const cities = ["Paris", "Rome", "Kazan"];
-  const buttonTypes = ['primary','secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark']
+  const buttonTypes : ("inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning")[] = ['inherit', 'primary', 'secondary', 'error', 'info', 'success', 'warning']
 
   const onSelectItem = (item: string) => {
     console.log(item);

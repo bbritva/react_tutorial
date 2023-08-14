@@ -8,9 +8,10 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+import { margin } from "@mui/system";
+import { right } from "@popperjs/core";
 
 const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
@@ -81,11 +82,11 @@ function ResponsiveAppBar() {
               src="/src/assets/logo-cup2.svg"
               alt="logo"
               aria-hidden="true"
-              width="85"
+              width="55"
             />
           {/* </SvgIcon> */}
           <Typography
-            variant="h2"
+            variant="h4"
             noWrap
             component="a"
             href="/"

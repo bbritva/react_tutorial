@@ -2,16 +2,16 @@ import { Button } from "@mui/material";
 
 interface Props {
   onBtnPress: (prev: number) => void;
-  btnTypes: string[];
+  btnTypes: ("inherit" | "primary" | "secondary" | "success" | "error" | "info" | "warning")[];
   currentState: number
 }
 
 function MyButton({ onBtnPress, btnTypes, currentState }: Props) {
   return (
     <Button
-      variant="outlined"
+      variant="contained"
       type="button"
-      className={"btn btn-primary btn-" + btnTypes[currentState]}
+      color={btnTypes[currentState]}
       onClick={() => {
         let newState = currentState + 1
         if (newState >= btnTypes.length)
